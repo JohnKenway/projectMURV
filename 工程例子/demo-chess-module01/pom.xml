@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>demo.chess</groupId>
+    <artifactId>module01</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- 引入 spring boot 父工程 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId> <!-- 引入工程所属组，一般以工程根路径命名 -->
+        <artifactId>spring-boot-starter-parent</artifactId> <!-- 引入工程项目名，从 maven 中加载而来 -->
+        <version>2.0.4.RELEASE</version> <!-- 引入工程的版本号，一般没有特殊需要，不用设置，由 maven 统一管理，保持应用版本统一 -->
+    </parent>
+
+    <!-- 引如需要的其他配置，dependency: 依赖关系 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId> <!-- 对 WEB 的支持是属于 spring boot 组的 -->
+            <artifactId>spring-boot-starter-web</artifactId> <!-- 引入 spring boot WEB 支持包 -->
+        </dependency>
+    </dependencies>
+
+    <!--
+        为编译进行的配置：
+            比如当前的打包工具配置，和以后的jdk引入等
+    -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

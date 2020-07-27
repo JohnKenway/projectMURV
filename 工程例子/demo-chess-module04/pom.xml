@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>demo.chess</groupId>
+    <artifactId>module04</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- 依赖关系管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId> <!-- 按照 SpringBoot 依赖关系方式控制版本依赖 -->
+                <version>2.1.9.RELEASE</version> <!-- 版本号 -->
+                <type>pom</type> <!--  -->
+                <scope>import</scope> <!-- 按照 import 方式导入 -->
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 引如需要的其他配置，dependency: 依赖关系 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId> <!-- 对 WEB 的支持是属于 spring boot 组的 -->
+            <artifactId>spring-boot-starter-web</artifactId> <!-- 引入 spring boot WEB 支持包 -->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId> <!-- 引入 spring boot JDBC 支持包 -->
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId> <!-- 引入 mysql 支持包 -->
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId> <!-- 引入 alibaba 连接池 druid 包 -->
+            <version>1.0.26</version> <!-- 当前使用版本号 1.0.26 -->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId> <!-- 加载开发工具 -->
+            <optional>true</optional> <!-- 设置成true，则本 dependency 不传递到子工程 -->
+        </dependency>
+    </dependencies>
+
+    <!--
+        为编译进行的配置：
+            比如当前的打包工具配置，和以后的jdk引入等
+    -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- 设置源编码格式 -->
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding> <!-- 设置输出编码格式 -->
+    </properties>
+
+    
+</project>
